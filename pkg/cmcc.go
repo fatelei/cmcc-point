@@ -22,17 +22,15 @@ type CmccResponse struct {
 }
 
 type Cmcc struct {
-	endpoint   string
-	privateKey string // rsa key sign mobile
-	ip         string
-	client     *http.Client
+	endpoint string
+	ip       string
+	client   *http.Client
 }
 
-func NewCmcc(privateKey, ip string) *Cmcc {
+func NewCmcc(ip string) *Cmcc {
 	return &Cmcc{
-		endpoint:   "https://m.jf.10086.cn",
-		privateKey: privateKey,
-		ip:         ip,
+		endpoint: "https://m.jf.10086.cn",
+		ip:       ip,
 		client: &http.Client{
 			Transport:     nil,
 			CheckRedirect: nil,
